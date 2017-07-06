@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 
-const Route = ({ children, store }) => (
+const Routes = ({ children, store }) => (
   <Provider store={ store }>
     <Router>
       <div>
