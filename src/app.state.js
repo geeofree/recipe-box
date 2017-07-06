@@ -6,7 +6,7 @@ const logger = (store) => (state) => (action) => {
   next(action)
 }
 
-const reducers   =  combineReducers({ recipe: RecipeReducer })
+const reducers   =  combineReducers({ recipes: RecipeReducer })
 const middleware =  applyMiddleware(logger)
 const AppState   = createStore(reducers, {})
 export default AppState
