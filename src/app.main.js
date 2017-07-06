@@ -14,7 +14,7 @@ import Recipe   from './views/recipe/layout.recipe'
 const App = () => (
   <Routes store={AppState}>
     <NavRoute>
-      <RouteLink to="/" text="Home" />
+      <RouteLink to="/" text="Home" exact />
       <RouteLink to="/recipe" text="New Recipe" />
     </NavRoute>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { BrowserRouter as Router, NavLink } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 
@@ -19,8 +19,8 @@ export const NavRoute = ({ children }) => (
   </div>
 )
 
-export const RouteLink = ({ text, to }) => (
-  <Link to={to}>
-    <div className="link">{text}</div>
-  </Link>
+export const RouteLink = ({ exact, text, to }) => (
+  <NavLink exact={exact} to={to} activeClassName="link--active" className="link">
+    {text}
+  </NavLink>
 )
