@@ -14,13 +14,13 @@ import Recipe   from './views/recipe/layout.recipe'
 const App = () => (
   <Routes store={AppState}>
     <NavRoute>
-      <RouteLink to="/" text="Home" exact />
-      <RouteLink to="/recipe" text="New Recipe" />
+      <RouteLink to="/recipebox" text="Home" exact />
+      <RouteLink to="/recipebox/add" text="Add Recipe" />
     </NavRoute>
 
     <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/recipe" component={Recipe} />
+      <Route path="/recipebox" component={Home} exact />
+      <Route path="/recipebox/add" component={Recipe} />
     </Switch>
   </Routes>
 )
