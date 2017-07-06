@@ -1,4 +1,5 @@
 $dark: #222;
+$marine: #4a84b6;
 $bar-height: 50px;
 
 html, body {
@@ -31,10 +32,11 @@ html, body {
     text-decoration: none;
     outline: none;
     transition-duration: 0.3s;
+    border-radius: 5px;
   }
 }
 
 .link--active {
-  background: crimson !important;
+  background: $marine !important;
   color: #FFF !important;
 }
