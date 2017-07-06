@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import RecipeReducer from './reducers/recipe.reducer'
 
-const logger = (store) => (state) => (action) => {
+const logger = (store) => (next) => (action) => {
   console.log('Dispatching:', action)
   next(action)
 }
