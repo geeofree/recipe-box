@@ -1,4 +1,6 @@
 import React from 'react'
+import './recipe.style.scss'
+
 import { connect } from 'react-redux'
 import { addRecipe } from '../../actions/recipe.action'
 
