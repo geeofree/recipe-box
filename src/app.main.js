@@ -4,8 +4,8 @@ import './app.style.scss'
 
 import AppState from './app.state'
 
-import { Switch, Link, Route } from 'react-router-dom'
-import { Routes, NavRoute } from './app.route'
+import { Switch, Route } from 'react-router-dom'
+import { Routes, NavRoute, RouteLink } from './app.route'
 
 import Home     from './views/home/layout.home'
 import Recipe   from './views/recipe/layout.recipe'
@@ -14,8 +14,8 @@ import Recipe   from './views/recipe/layout.recipe'
 const App = () => (
   <Routes store={AppState}>
     <NavRoute>
-      <Link to="/">Home</Link>
-      <Link to="/recipe">New Recipe</Link>
+      <RouteLink to="/" text="Home" />
+      <RouteLink to="/recipe" text="New Recipe" />
     </NavRoute>
 
     <Switch>
