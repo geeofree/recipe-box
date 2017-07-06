@@ -7,8 +7,8 @@ const HomeLayout = ({ recipes }) => {
     return (
       <div className="home">
         <div className="recipe-list">
-        {recipes.map((recipe, index) => (
-          <p key={index} onClick={e => getRecipe(index)}>{recipe}</p>
+        {recipes.map((recipe, id) => (
+          <p key={id} onClick={e => getRecipe(id)}>{recipe}</p>
         ))}
         </div>
       </div>
