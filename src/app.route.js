@@ -20,7 +20,7 @@ export const NavRoute = ({ children }) => (
 )
 
 export const RouteLink = ({ text, to }) => (
-  <div className="nav-route-link">
-    <Link to={to}>{text}</Link>
-  </div>
+  <Link to={to}>
+    <div className="link">{text}</div>
+  </Link>
 )
