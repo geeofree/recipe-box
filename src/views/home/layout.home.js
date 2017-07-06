@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getRecipe } from '../../actions/recipe.action'
 
-const HomeLayout = ({ recipes }) => {
+const HomeLayout = ({ recipes, getRecipe }) => {
   if(recipes.length) {
     return (
       <div className="home">
         <div className="recipe-list">
         {recipes.map((recipe, id) => (
-          <p key={id} onClick={e => getRecipe(id)}>{recipe}</p>
+          <p key={id} onClick={e => getRecipe(id)}>{recipe.name}</p>
         ))}
         </div>
       </div>
@@ -24,7 +24,7 @@ const HomeLayout = ({ recipes }) => {
 }
 
 const mapStoreToProps = (store) => ({
-  recipes: store.recipes
+  recipes: store.recipes.recipes
 })
 
 const mapDispatchToProps = (dispatch) => ({
