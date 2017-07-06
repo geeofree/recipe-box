@@ -34,9 +34,15 @@ class RecipeLayout extends React.Component {
     const { name, ingredients } = state
     const { addRecipe } = props
 
+    if(name.length < 3) {
+      alert('Recipe name must be 3 or more characters')
+      return
+    }
 
     addRecipe({ id, name, ingredients: ingredients.split(/\s*,\s*/) })
     id = id + 1
+
+    this.setState({ name: '', ingredients: '' })
   }
 
   render() {
@@ -46,8 +52,14 @@ class RecipeLayout extends React.Component {
       <div className="recipe">
         <h1>Add a new recipe!</h1>
         <form onSubmit={handleSubmit}>
-          <input placeholder="Recipe Name" onChange={handleChange('input')}/>
-          <textarea placeholder="Type in ingredients separated, by, a, comma." onChange={handleChange('textarea')}/>
+          <input
+            value={ state.name }
+            onChange={ handleChange('input') }
+            placeholder="Recipe Name" />
+          <textarea
+            value={ state.ingredients }
+            onChange={ handleChange('textarea') }
+            placeholder="Type in ingredients separated, by, a, comma." />
           <button>Add</button>
         </form>
       </div>
