@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 
-const Routes = ({ children, store }) => (
+export const Routes = ({ children, store }) => (
   <Provider store={ store }>
     <Router>
       <div>
@@ -13,4 +13,8 @@ const Routes = ({ children, store }) => (
   </Provider>
 )
 
-export default Routes
+export const NavRoute = ({ children }) => (
+  <div className="nav-route">
+    { children }
+  </div>
+)

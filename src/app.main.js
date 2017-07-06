@@ -2,7 +2,18 @@ import React    from 'react'
 import ReactDOM from 'react-dom'
 import './app.style.scss'
 
-const HelloWorld = () => <h1>Hello World!</h1>
-const root = document.getElementById('root')
+import { Switch, Link, Route } from 'react-router-dom'
+import Routes from './app.route'
 
-ReactDOM.render(<HelloWorld />, root)
+
+
+
+const App = () => (
+  <Routes>
+
+  </Routes>
+)
+
+
+const root = document.getElementById('root')
+ReactDOM.render(<App />, root)
