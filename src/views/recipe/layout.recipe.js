@@ -58,7 +58,7 @@ class RecipeLayout extends React.Component {
           <textarea
             value={ state.ingredients }
             onChange={ handleChange('textarea') }
-            placeholder="Type in ingredients separated, by, a, comma." />
+            placeholder="Type in ingredients separated by a comma" />
           <button>Add</button>
         </form>
       </div>
