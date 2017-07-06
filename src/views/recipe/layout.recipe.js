@@ -50,7 +50,6 @@ class RecipeLayout extends React.Component {
 
     return (
       <div className="recipe">
-        <h1>Add a new recipe!</h1>
         <form onSubmit={handleSubmit}>
           <input
             value={ state.name }
