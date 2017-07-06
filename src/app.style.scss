@@ -18,3 +18,20 @@ html, body {
   height: 100%;
   padding: 30px;
 }
+
+.nav-route {
+  display: flex;
+  height: $bar-height;
+
+  a {
+    text-decoration: none;
+    outline: none;
+  }
+
+  .link {
+    height: $bar-height;
+    line-height: $bar-height;
+    padding: 0 7px;
+    color: #222;
+  }
+}
