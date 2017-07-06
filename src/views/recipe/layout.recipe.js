@@ -44,6 +44,7 @@ class RecipeLayout extends React.Component {
 
     return (
       <div className="recipe">
+        <h1>Add a new recipe!</h1>
         <form onSubmit={handleSubmit}>
           <input placeholder="Recipe Name" onChange={handleChange('input')}/>
           <textarea placeholder="Type in ingredients separated, by, a, comma." onChange={handleChange('textarea')}/>
