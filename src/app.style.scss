@@ -1,5 +1,5 @@
 $dark: #222;
-$bar-height: 70px;
+$bar-height: 50px;
 
 html, body {
   color: $dark;
@@ -23,15 +23,18 @@ html, body {
   display: flex;
   height: $bar-height;
 
-  a {
-    text-decoration: none;
-    outline: none;
-  }
-
   .link {
     height: $bar-height;
     line-height: $bar-height;
     padding: 0 7px;
     color: #222;
+    text-decoration: none;
+    outline: none;
+    transition-duration: 0.3s;
   }
+}
+
+.link--active {
+  background: crimson !important;
+  color: #FFF !important;
 }
