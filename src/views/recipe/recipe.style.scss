@@ -1,3 +1,5 @@
+$mint: #32a869;
+
 .recipe {
   padding: 20px;
 
@@ -16,21 +18,30 @@
 
     input {
       width: 200px;
+      border: 1px solid #ddd;
+      padding: 5px;
+      font-size: 17px;
+      font-family: Helvetica;
+      border-radius: 5px;
     }
 
     textarea {
       width: 500px;
       height: 250px;
       padding: 10px;
-      font-family: sans-serif;
+      font-family: Helvetica;
+      border: 1px solid #ddd;
+      border-radius: 5px;
     }
 
     button {
-      background: crimson;
+      background: $mint;
       color: #FFF;
       border: none;
-      width: 100px;
+      width: 50px;
       padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
     }
   }
 }
