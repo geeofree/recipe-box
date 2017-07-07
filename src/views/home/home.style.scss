@@ -6,6 +6,31 @@
     margin: 0;
   }
 
+  .selected-recipe {
+    margin: 0 30px;
+    display: flex;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 20px;
+
+    .recipe-img {
+      margin: 0 20px 0 0;
+    }
+
+    .recipe-info {
+      min-width: 200px;
+
+      ul {
+        list-style: none;
+        height: 225px;
+        border: 1px solid #DDD;
+        border-radius: 5px;
+        padding: 10px;
+        overflow-y: auto;
+      }
+    }
+  }
+
   .recipe-list {
     height: 400px;
     overflow-y: auto;
