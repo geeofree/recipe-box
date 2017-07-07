@@ -1,7 +1,25 @@
 .home {
   padding: 20px;
+  display: flex;
 
   h1 {
     margin: 0;
+  }
+
+  .recipe-list {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 10px;
+
+    .recipe-item {
+      padding: 5px 30px;
+      background: crimson;
+      color: #FFF;
+      border-radius: 5px;
+      margin: 8px 0;
+      cursor: pointer;
+    }
   }
 }
