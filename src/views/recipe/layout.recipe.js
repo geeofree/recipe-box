@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 import { addRecipe } from '../../actions/recipe.action'
 
 
-var id = 0
-
 class RecipeLayout extends React.Component {
   constructor(props) {
     super(props)
@@ -43,17 +41,21 @@ class RecipeLayout extends React.Component {
     e.preventDefault()
     const { state, props } = this
     const { name, ingredients, imgURL } = state
-    const { addRecipe } = props
+    const { addRecipe, recipes } = props
 
     if(name.length < 3) {
       alert('Recipe name must be 3 or more characters')
       return
     }
 
-    addRecipe({ id, name, imgURL, ingredients: ingredients.split(/\s*,\s*/) })
-    id = id + 1
+    addRecipe({
+      name,
+      imgURL,
+      id: recipes.length,
+      ingredients: ingredients.split(/\s*,\s*/)
+    })
 
-    this.setState({ name: '', ingredients: '' })
+    this.setState({ name: '', ingredients: '', imgURL: placeholder })
   }
 
   render() {
@@ -82,9 +84,13 @@ class RecipeLayout extends React.Component {
   }
 }
 
+const mapStoreToProps = (store) => ({
+  recipes: store.recipes.recipes
+})
+
 const mapDispatchToProps = (dispatch) => ({
   addRecipe: (data) => dispatch(addRecipe(data))
 })
 
-const Recipe = connect(null, mapDispatchToProps)(RecipeLayout)
+const Recipe = connect(mapStoreToProps, mapDispatchToProps)(RecipeLayout)
 export default Recipe
