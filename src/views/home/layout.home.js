@@ -4,7 +4,7 @@ import './home.style.scss'
 import { connect } from 'react-redux'
 import { getRecipe } from '../../actions/recipe.action'
 
-const HomeLayout = ({ recipes, getRecipe }) => {
+const HomeLayout = ({ recipe, recipes, getRecipe }) => {
   if(recipes.length) {
     return (
       <div className="home">
@@ -31,7 +31,8 @@ const HomeLayout = ({ recipes, getRecipe }) => {
 }
 
 const mapStoreToProps = (store) => ({
-  recipes: store.recipes.recipes
+  recipes: store.recipes.recipes,
+  recipe: store.recipes.selected
 })
 
 const mapDispatchToProps = (dispatch) => ({
