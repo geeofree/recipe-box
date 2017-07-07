@@ -10,7 +10,12 @@ const HomeLayout = ({ recipes, getRecipe }) => {
       <div className="home">
         <div className="recipe-list">
         {recipes.map((recipe, id) => (
-          <p key={id} onClick={e => getRecipe(id)}>{recipe.name}</p>
+          <p
+            key={id}
+            className="recipe-item"
+            onClick={e => getRecipe(id)}>
+              {recipe.name}
+          </p>
         ))}
         </div>
       </div>
