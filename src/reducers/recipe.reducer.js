@@ -1,10 +1,10 @@
 const InitialState = {
   recipes: [],
-  selected: null
+  selected: {}
 }
 
 function assign(target, newValue) {
-  return Object.assign(target, {}, newValue)
+  return Object.assign({}, target, newValue)
 }
 
 function addRecipe(state, recipe) {
@@ -15,7 +15,7 @@ function addRecipe(state, recipe) {
 
 function getRecipe(state, recipeID) {
   return assign(state, {
-    selected: state.recipes.filter(recipe => recipe.id === recipeID)[0]
+    selected: assign(state.selected, state.recipes.filter(recipe => recipe.id === recipeID)[0])
   })
 }
 
