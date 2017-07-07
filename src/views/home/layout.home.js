@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import './home.style.scss'
 
 import RecipeList     from './recipe-list.home'
-import SelectedRecipe from './recipe.home'
+import SelectedRecipe from './recipe-selected.home'
 
 
 const HomeLayout = ({ recipe, recipes }) => (
