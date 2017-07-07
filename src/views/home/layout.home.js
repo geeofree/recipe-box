@@ -1,44 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import './home.style.scss'
 
-import { connect } from 'react-redux'
-import { getRecipe } from '../../actions/recipe.action'
+import Recipe from './recipe.home'
+import RecipeList from './recipe-list.home'
 
-const HomeLayout = ({ recipe, recipes, getRecipe }) => {
-  if(recipes.length) {
-    return (
-      <div className="home">
-        <div className="recipe-list">
-        {recipes.map((recipe, id) => (
-          <p
-            key={id}
-            className="recipe-item"
-            onClick={e => getRecipe(id)}>
-              {recipe.name}
-          </p>
-        ))}
-        </div>
-      </div>
-    )
-  }
-  else {
-    return (
-      <div className="home">
-        <h1>No recipes made as of yet.</h1>
-      </div>
-    )
-  }
-}
+
+const HomeLayout = ({ recipe, recipes }) => (
+  (recipes.length === 0) ?
+  (
+    <div className="home">
+      <h1>No recipes made as of yet.</h1>
+    </div>
+
+  ) :
+  (
+    <div className="home">
+      <RecipeList recipes={recipes} />
+      { recipe.name && <Recipe recipe={recipe} /> }
+    </div>
+  )
+)
 
 const mapStoreToProps = (store) => ({
   recipes: store.recipes.recipes,
   recipe: store.recipes.selected
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  getRecipe: (id) => dispatch(getRecipe(id))
-})
-
-
-const Home = connect(mapStoreToProps, mapDispatchToProps)(HomeLayout)
+const Home = connect(mapStoreToProps)(HomeLayout)
 export default Home
