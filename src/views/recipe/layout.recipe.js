@@ -10,13 +10,23 @@ var id = 0
 class RecipeLayout extends React.Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit    = this.handleSubmit.bind(this)
+    this.handleChange    = this.handleChange.bind(this)
+    this.handleImgReader = this.handleImgReader.bind(this)
 
     this.state = {
       name: '',
-      ingredients: ''
+      ingredients: '',
+      imgURL: ''
     }
+  }
+
+  handleImgReader(e) {
+    const file   = e.target.files[0]
+    const reader = new FileReader()
+
+    reader.onload = ({ target }) => this.setState({ imgURL: target.result })
+    reader.readAsDataURL(file)
   }
 
   handleChange(type) {
@@ -46,7 +56,7 @@ class RecipeLayout extends React.Component {
   }
 
   render() {
-    const { props, state, handleSubmit, handleChange } = this
+    const { props, state, handleSubmit, handleChange, handleImgReader } = this
 
     return (
       <div className="recipe">
@@ -61,6 +71,11 @@ class RecipeLayout extends React.Component {
             placeholder="Type in ingredients separated by a comma" />
           <button>Add</button>
         </form>
+
+        <div className="image-container">
+          <div className="recipe-img" style={{ backgroundImage: `url(${state.imgURL})` }} />
+          <input type="file" onChange={handleImgReader} />
+        </div>
       </div>
     )
   }

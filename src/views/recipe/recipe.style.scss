@@ -3,6 +3,7 @@ $ocean: #3293a8;
 
 .recipe {
   padding: 20px;
+  display: flex;
 
   h1 {
     margin-top: 0;
@@ -53,6 +54,21 @@ $ocean: #3293a8;
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
+    }
+  }
+
+  .image-container {
+    margin: 0 30px;
+
+    .recipe-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #DDD;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 }
