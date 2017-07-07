@@ -42,7 +42,7 @@ class RecipeLayout extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const { state, props } = this
-    const { name, ingredients } = state
+    const { name, ingredients, imgURL } = state
     const { addRecipe } = props
 
     if(name.length < 3) {
@@ -50,7 +50,7 @@ class RecipeLayout extends React.Component {
       return
     }
 
-    addRecipe({ id, name, ingredients: ingredients.split(/\s*,\s*/) })
+    addRecipe({ id, name, imgURL, ingredients: ingredients.split(/\s*,\s*/) })
     id = id + 1
 
     this.setState({ name: '', ingredients: '' })
