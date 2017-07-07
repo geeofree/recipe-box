@@ -1,4 +1,5 @@
 import React from 'react'
+import placeholder from '../../../public/img/placeholder.png'
 import './recipe.style.scss'
 
 import { connect } from 'react-redux'
@@ -17,7 +18,7 @@ class RecipeLayout extends React.Component {
     this.state = {
       name: '',
       ingredients: '',
-      imgURL: ''
+      imgURL: placeholder
     }
   }
 
