@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './home.style.scss'
 
-import Recipe from './recipe.home'
-import RecipeList from './recipe-list.home'
+import RecipeList     from './recipe-list.home'
+import SelectedRecipe from './recipe.home'
 
 
 const HomeLayout = ({ recipe, recipes }) => (
@@ -17,7 +17,7 @@ const HomeLayout = ({ recipe, recipes }) => (
   (
     <div className="home">
       <RecipeList recipes={recipes} />
-      { recipe.name && <Recipe recipe={recipe} /> }
+      { recipe.name && <SelectedRecipe recipe={recipe} /> }
     </div>
   )
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Recipe = ({ recipe }) => (
+const SelectedRecipe = ({ recipe }) => (
   <div>
     <img src={recipe.imgURL} />
     <h2>{recipe.name}</h2>
@@ -12,4 +12,4 @@ const Recipe = ({ recipe }) => (
   </div>
 )
 
-export default Recipe
+export default SelectedRecipe
