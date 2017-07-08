@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import { addRecipe } from '../../actions/recipe.action'
 
 
+var id = 0
+
 class RecipeLayout extends React.Component {
   constructor(props) {
     super(props)
@@ -49,12 +51,13 @@ class RecipeLayout extends React.Component {
     }
 
     addRecipe({
+      id,
       name,
       imgURL,
-      id: recipes.length,
       ingredients: ingredients.split(/\s*,\s*/)
     })
 
+    id = id + 1
     this.setState({ name: '', ingredients: '', imgURL: placeholder })
   }
 
