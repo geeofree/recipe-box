@@ -7,14 +7,20 @@ const Ingredients = ({ items }) => {
 
 const SelectedRecipe = ({ recipe }) => (
   <div className="selected-recipe">
-    <div className="recipe-img" style={{ backgroundImage: `url(${recipe.imgURL})` }} />
-    <div className="recipe-info">
-      <h2>{recipe.name}</h2>
-
-      <div className="ingredients">
-        <h3>Ingredients</h3>
-        <Ingredients items={recipe.ingredients} />
+    <div className="recipe-container">
+      <div className="recipe-img" style={{ backgroundImage: `url(${recipe.imgURL})` }} />
+      <div className="recipe-info">
+        <h2>{recipe.name}</h2>
+        <div className="ingredients">
+          <h3>Ingredients</h3>
+          <Ingredients items={recipe.ingredients} />
+        </div>
       </div>
+    </div>
+
+    <div className="selected-recipe-buttons">
+      <button className="edit-recipe">Edit</button>
+      <button className="delete-recipe">Delete</button>
     </div>
   </div>
 )
