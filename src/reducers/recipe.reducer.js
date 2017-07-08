@@ -21,7 +21,8 @@ function getRecipe(state, recipeID) {
 
 function removeRecipe(state, recipeID) {
   return assign(state, {
-    recipes: state.recipes.filter(recipe => recipe.id !== recipeID)
+    recipes: state.recipes.filter(recipe => recipe.id !== recipeID),
+    selected: {}
   })
 }
 
@@ -30,7 +31,7 @@ const RecipeReducer = (state=InitialState, action) => {
     case 'ADD_RECIPE':
       return addRecipe(state, action.payload)
     case 'REMOVE_RECIPE':
-      return removeRecipe(state, action.payload.id)
+      return removeRecipe(state, state.selected.id)
     case 'GET_RECIPE':
       return getRecipe(state, action.payload.id)
     default:
