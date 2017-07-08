@@ -11,34 +11,39 @@
     border-radius: 5px;
     padding: 20px;
 
-    .recipe-img {
-      margin: 0 20px 0 0;
-      border-radius: 0;
-    }
+    .recipe-container {
+      display: flex;
+      margin-bottom: 10px;
 
-    .recipe-info {
-      min-width: 200px;
-      color: #555;
-
-      h2 {
-        text-decoration: underline;
+      .recipe-img {
+        margin: 0 20px 0 0;
+        border-radius: 0;
       }
 
-      .ingredients {
-        padding: 10px;
-        border: 1px solid #DDD;
+      .recipe-info {
+        min-width: 200px;
+        color: #555;
 
-        h3 {
-          margin: 0;
+        h2 {
+          text-decoration: underline;
         }
 
-        ul {
-          margin: 0;
-          max-height: 180px;
-          overflow-y: auto;
+        .ingredients {
+          padding: 10px;
+          border: 1px solid #DDD;
 
-          li {
-            margin: 3px 0;
+          h3 {
+            margin: 0;
+          }
+
+          ul {
+            margin: 0;
+            max-height: 180px;
+            overflow-y: auto;
+
+            li {
+              margin: 3px 0;
+            }
           }
         }
       }
