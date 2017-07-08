@@ -22,7 +22,7 @@ function getRecipe(state, recipeID) {
 function removeRecipe(state, recipeID) {
   return assign(state, {
     recipes: state.recipes.filter(recipe => recipe.id !== recipeID),
-    selected: assign(state.selected, {})
+    selected: {}
   })
 }
 
