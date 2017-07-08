@@ -7,3 +7,8 @@ export const addRecipe = (recipeData) => ({
   type: 'ADD_RECIPE',
   payload: recipeData
 })
+
+export const removeRecipe = (id) => ({
+  type: 'REMOVE_RECIPE',
+  payload: { id }
+})
