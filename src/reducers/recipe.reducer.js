@@ -31,9 +31,9 @@ const RecipeReducer = (state=InitialState, action) => {
     case 'ADD_RECIPE':
       return addRecipe(state, action.payload)
     case 'REMOVE_RECIPE':
-      return removeRecipe(state, action.payload.id)
+      return removeRecipe(state, action.payload)
     case 'GET_RECIPE':
-      return getRecipe(state, action.payload.id)
+      return getRecipe(state, action.payload)
     default:
       return state
   }

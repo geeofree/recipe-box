@@ -1,6 +1,6 @@
 export const getRecipe = (id) => ({
   type: 'GET_RECIPE',
-  payload: { id }
+  payload: id
 })
 
 export const addRecipe = (recipeData) => ({
@@ -10,5 +10,5 @@ export const addRecipe = (recipeData) => ({
 
 export const removeRecipe = (id) => ({
   type: 'REMOVE_RECIPE',
-  payload: { id }
+  payload: id
 })
