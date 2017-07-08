@@ -10,7 +10,7 @@ const RecipeListLayout = ({ recipes, getRecipe }) => (
       <p
         key={id}
         className="recipe-item"
-        onClick={e => getRecipe(id)}>
+        onClick={e => getRecipe(recipe.id)}>
           {recipe.name}
       </p>
     ))}
