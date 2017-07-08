@@ -2,20 +2,14 @@ import React            from 'react'
 import { connect }      from 'react-redux'
 import { removeRecipe } from '../../actions/recipe.action'
 
-import RecipeInfo from './recipe-info.home'
+import RecipeInfo    from './recipe-info.home'
+import RecipeOptions from './recipe-options.home'
+
 
 const SelectedRecipeLayout = ({ recipe, deleteRecipe }) => (
   <div className="selected-recipe">
     <RecipeInfo recipe={recipe} />
-
-    <div className="selected-recipe-buttons">
-      <button className="edit-recipe">Edit</button>
-      <button
-        className="delete-recipe"
-        onClick={() => deleteRecipe(recipe.id)}>
-          Delete
-      </button>
-    </div>
+    <RecipeOptions recipeID={recipe.id} deleteRecipe={deleteRecipe} />
   </div>
 )
 
