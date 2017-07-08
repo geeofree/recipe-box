@@ -19,10 +19,18 @@ function getRecipe(state, recipeID) {
   })
 }
 
+function removeRecipe(state, recipeID) {
+  return assign(state, {
+    recipes: state.recipes.filter(recipe => recipe.id !== recipeID)
+  })
+}
+
 const RecipeReducer = (state=InitialState, action) => {
   switch(action.type) {
     case 'ADD_RECIPE':
       return addRecipe(state, action.payload)
+    case 'REMOVE_RECIPE':
+      return removeRecipe(state, action.payload.id)
     case 'GET_RECIPE':
       return getRecipe(state, action.payload.id)
     default:
