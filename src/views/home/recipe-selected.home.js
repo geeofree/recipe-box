@@ -8,7 +8,7 @@ const Ingredients = ({ items }) => {
   return ingredients.length ? <ul>{ingredients}</ul> : <p>This recipe has no ingredients.</p>
 }
 
-const SelectedRecipeLayout = ({ recipe }) => (
+const SelectedRecipeLayout = ({ recipe, deleteRecipe }) => (
   <div className="selected-recipe">
     <div className="recipe-container">
       <div className="recipe-img" style={{ backgroundImage: `url(${recipe.imgURL})` }} />
@@ -23,7 +23,11 @@ const SelectedRecipeLayout = ({ recipe }) => (
 
     <div className="selected-recipe-buttons">
       <button className="edit-recipe">Edit</button>
-      <button className="delete-recipe">Delete</button>
+      <button
+        className="delete-recipe"
+        onClick={() => deleteRecipe(recipe.id)}>
+          Delete
+      </button>
     </div>
   </div>
 )
