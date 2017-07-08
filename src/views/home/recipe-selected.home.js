@@ -6,12 +6,20 @@ import RecipeInfo    from './recipe-info.home'
 import RecipeOptions from './recipe-options.home'
 
 
-const SelectedRecipeLayout = ({ recipe, deleteRecipe }) => (
-  <div className="selected-recipe">
-    <RecipeInfo recipe={recipe} />
-    <RecipeOptions recipeID={recipe.id} deleteRecipe={deleteRecipe} />
-  </div>
-)
+class SelectedRecipeLayout extends React.component {
+
+  render() {
+    const { props } = this
+    const { recipe, deleteRecipe } = props
+
+    return (
+      <div className="selected-recipe">
+        <RecipeInfo recipe={recipe} />
+        <RecipeOptions recipeID={recipe.id} deleteRecipe={deleteRecipe} />
+      </div>
+    )
+  }
+}
 
 
 const mapDispatchToProps = (dispatch) => ({
