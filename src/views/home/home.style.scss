@@ -33,7 +33,7 @@
 
         ul {
           margin: 0;
-          list-style: none;
+          max-height: 180px;
           overflow-y: auto;
         }
       }
