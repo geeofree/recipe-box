@@ -48,6 +48,24 @@
         }
       }
     }
+
+    .selected-recipe-buttons {
+      button {
+        border: none;
+        padding: 10px;
+        color: #FFF;
+        cursor: pointer;
+      }
+
+      .edit-recipe {
+        background: #32466e;
+        margin-right: 3px;
+      }
+
+      .delete-recipe {
+        background: #c22847;
+      }
+    }
   }
 
   .recipe-list {
