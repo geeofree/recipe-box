@@ -1,11 +1,14 @@
-import React from 'react'
+import React            from 'react'
+import { connect }      from 'react-redux'
+import { removeRecipe } from '../../actions/recipe.action'
+
 
 const Ingredients = ({ items }) => {
   const ingredients = items.filter(val => val).map((ingredient, index) => <li key={index}>{ingredient}</li>)
   return ingredients.length ? <ul>{ingredients}</ul> : <p>This recipe has no ingredients.</p>
 }
 
-const SelectedRecipe = ({ recipe }) => (
+const SelectedRecipeLayout = ({ recipe }) => (
   <div className="selected-recipe">
     <div className="recipe-container">
       <div className="recipe-img" style={{ backgroundImage: `url(${recipe.imgURL})` }} />
@@ -25,4 +28,10 @@ const SelectedRecipe = ({ recipe }) => (
   </div>
 )
 
+
+const mapDispatchToProps = (dispatch) => ({
+  deleteRecipe: (id) => dispatch(removeRecipe(id))
+})
+
+const SelectedRecipe = connect(null, mapDispatchToProps)(SelectedRecipeLayout)
 export default SelectedRecipe
