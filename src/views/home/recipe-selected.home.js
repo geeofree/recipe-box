@@ -6,7 +6,7 @@ import RecipeInfo    from './recipe-info.home'
 import RecipeOptions from './recipe-options.home'
 
 
-class SelectedRecipeLayout extends React.component {
+class SelectedRecipeLayout extends React.Component {
 
   render() {
     const { props } = this
