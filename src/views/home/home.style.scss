@@ -8,7 +8,7 @@
 
   .selected-recipe {
     margin: 0 30px;
-    border-radius: 5px;
+    border: 1px solid #cdcdcd;
     padding: 20px;
 
     .recipe-container {
@@ -71,7 +71,7 @@
   .recipe-list {
     height: 400px;
     overflow-y: auto;
-    border-radius: 5px;
+    border: 1px solid #cdcdcd;
     padding: 10px;
 
     .recipe-item {
