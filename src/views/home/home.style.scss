@@ -19,6 +19,10 @@
       cursor: pointer;
       border-radius: 15px;
     }
+
+    .--active {
+      background: crimson;
+    }
   }
 
   .selected-recipe {
