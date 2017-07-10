@@ -6,7 +6,7 @@ import RecipeOptions from './recipe-options.home'
 const SelectedRecipe = ({ recipe }) => (
   <div className="selected-recipe">
     <RecipeInfo recipe={recipe} />
-    <RecipeOptions />
+    <RecipeOptions recipeID={recipe.id} />
   </div>
 )
 
