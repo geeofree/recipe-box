@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect }      from 'react-redux'
+import { removeRecipe } from '../../actions/recipe.action'
 
-const RecipeOptions = ({ recipeID, deleteRecipe }) => (
+const RecipeOptionsLayout = ({ recipeID, deleteRecipe }) => (
   <div className="selected-recipe-buttons">
     <button className="edit-recipe">Edit</button>
     <button
@@ -11,4 +13,10 @@ const RecipeOptions = ({ recipeID, deleteRecipe }) => (
   </div>
 )
 
+const mapDispatchToProps = (dispatch) => ({
+  deleteRecipe: (id) => dispatch(removeRecipe(id)),
+  toggleEdit: () => dispatch('TOGGLE_EDIT')
+})
+
+const RecipeOptions = connect(null, mapDispatchToProps)(RecipeOptions)
 export default RecipeOptions
