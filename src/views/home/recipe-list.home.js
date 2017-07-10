@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import { getRecipe } from '../../actions/recipe.action'
 
 
-const RecipeListLayout = ({ recipes, getRecipe }) => (
+const RecipeListLayout = ({ recipes, selectedRecipe, getRecipe }) => (
   <div className="recipe-list">
     {recipes.map((recipe, id) => (
       <p
         key={id}
-        className="recipe-item"
+        className={ selectedRecipe.id === recipe.id ? "recipe-item --active" : " recipe-item" }
         onClick={e => getRecipe(recipe.id)}>
           {recipe.name}
       </p>
@@ -17,9 +17,13 @@ const RecipeListLayout = ({ recipes, getRecipe }) => (
   </div>
 )
 
+const mapStoreToProps = (store) => ({
+  selectedRecipe: store.recipes.selected
+})
+
 const mapDispatchToProps = (dispatch) => ({
   getRecipe: (id) => dispatch(getRecipe(id))
 })
 
-const RecipeList = connect(null, mapDispatchToProps)(RecipeListLayout)
+const RecipeList = connect(mapStoreToProps, mapDispatchToProps)(RecipeListLayout)
 export default RecipeList
