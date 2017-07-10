@@ -12,3 +12,8 @@ export const removeRecipe = (id) => ({
   type: 'REMOVE_RECIPE',
   payload: id
 })
+
+export const editRecipe = (id, newRecipeData) => ({
+  type: 'EDIT_RECIPE',
+  payload: { id, newRecipeData }
+})
