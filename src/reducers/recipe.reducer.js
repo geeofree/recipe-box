@@ -40,6 +40,8 @@ const RecipeReducer = (state=InitialState, action) => {
       return removeRecipe(state, action.payload)
     case 'GET_RECIPE':
       return getRecipe(state, action.payload)
+    case 'EDIT_RECIPE':
+      return editRecipe(state, action.payload)
     default:
       return state
   }
