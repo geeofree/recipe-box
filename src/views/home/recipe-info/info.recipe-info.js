@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Ingredients from './ingredients.recipe-info'
+
 const Info = ({ name, ingredients }) => (
   <div className="recipe-info">
     <h2>{name}</h2>
