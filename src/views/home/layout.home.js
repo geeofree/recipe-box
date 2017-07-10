@@ -17,7 +17,7 @@ const HomeLayout = ({ recipe, recipes }) => (
   (
     <div className="home">
       <RecipeList recipes={recipes} />
-      { recipe.name && <SelectedRecipe recipe={recipe} /> }
+      { (Object.keys(recipe).length !== 0) && <SelectedRecipe recipe={recipe} /> }
     </div>
   )
 )
