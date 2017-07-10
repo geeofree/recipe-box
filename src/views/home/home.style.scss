@@ -18,10 +18,11 @@
       margin: 3px 0;
       cursor: pointer;
       border-radius: 15px;
+      transition-duration: 0.3s;
     }
 
     .--active {
-      background: crimson;
+      background: #d5852b;
     }
   }
 
