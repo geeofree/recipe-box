@@ -5,7 +5,7 @@ const Ingredients = ({ items }) => {
   return ingredients.length ? <ul>{ingredients}</ul> : <p>This recipe has no ingredients.</p>
 }
 
-const RecipeImg = ({ url }) => (
+const Image = ({ url }) => (
   <div className="recipe-img" style={{ backgroundImage: `url(${url})` }} />
 )
 
@@ -21,7 +21,7 @@ const Info = ({ name, ingredients }) => (
 
 const RecipeInfo = ({ recipe }) => (
   <div className="recipe-container">
-    <RecipeImg url={recipe.imgURL} />
+    <Image url={recipe.imgURL} />
     <Info name={recipe.name} ingredients={recipe.ingredients} />
   </div>
 )
