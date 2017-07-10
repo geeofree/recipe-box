@@ -17,3 +17,8 @@ export const editRecipe = (newRecipeData) => ({
   type: 'EDIT_RECIPE',
   payload: newRecipeData
 })
+
+export const toggleEdit = (editState) => ({
+  type: 'TOGGLE_EDIT',
+  payload: editState
+})
