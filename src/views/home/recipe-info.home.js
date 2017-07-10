@@ -9,16 +9,20 @@ const RecipeImg = ({ url }) => (
   <div className="recipe-img" style={{ backgroundImage: `url(${url})` }} />
 )
 
+const Info = ({ name, ingredients }) => (
+  <div className="recipe-info">
+    <h2>{name}</h2>
+    <div className="ingredients">
+      <h3>Ingredients</h3>
+      <Ingredients items={ingredients} />
+    </div>
+  </div>
+)
+
 const RecipeInfo = ({ recipe }) => (
   <div className="recipe-container">
     <RecipeImg url={recipe.imgURL} />
-    <div className="recipe-info">
-      <h2>{recipe.name}</h2>
-      <div className="ingredients">
-        <h3>Ingredients</h3>
-        <Ingredients items={recipe.ingredients} />
-      </div>
-    </div>
+    <Info name={recipe.name} ingredients={recipe.ingredients} />
   </div>
 )
 
