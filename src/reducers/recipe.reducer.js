@@ -3,34 +3,25 @@ const InitialState = {
   selected: {}
 }
 
-function assign(target, newValue) {
-  return Object.assign({}, target, newValue)
-}
+const assign = (target, newValue) => Object.assign({}, target, newValue)
 
-function addRecipe(state, recipe) {
-  return assign(state, {
-    recipes: [...state.recipes, recipe]
-  })
-}
+const addRecipe = (state, recipe) => assign(state, {
+  recipes: [...state.recipes, recipe]
+})
 
-function getRecipe(state, recipeID) {
-  return assign(state, {
-    selected: assign(state.selected, state.recipes.filter(recipe => recipe.id === recipeID)[0])
-  })
-}
+const getRecipe = (state, recipeID) => assign(state, {
+  selected: assign(state.selected, state.recipes.filter(recipe => recipe.id === recipeID)[0])
+})
 
-function removeRecipe(state, recipeID) {
-  return assign(state, {
-    recipes: state.recipes.filter(recipe => recipe.id !== recipeID),
-    selected: {}
-  })
-}
+const removeRecipe = (state, recipeID) => assign(state, {
+  recipes: state.recipes.filter(recipe => recipe.id !== recipeID),
+  selected: {}
+})
 
-function editRecipe(state, newRecipeData) {
-  return assign(state, {
-    selected: assign(state.selected, newRecipeData)
-  })
-}
+const editRecipe = (state, newRecipeData) => assign(state, {
+  selected: assign(state.selected, newRecipeData)
+})
+
 
 const RecipeReducer = (state=InitialState, action) => {
   switch(action.type) {
