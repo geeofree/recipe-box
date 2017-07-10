@@ -23,8 +23,8 @@ const editRecipe = (state, newRecipeData) => assign(state, {
   selected: assign(state.selected, newRecipeData)
 })
 
-const toggleEdit = (state) => assign(state, {
-  isEditting: !state.isEditting
+const toggleEdit = (state, editState) => assign(state, {
+  isEditting: editState
 })
 
 const RecipeReducer = (state=InitialState, action) => {
@@ -38,7 +38,7 @@ const RecipeReducer = (state=InitialState, action) => {
     case 'EDIT_RECIPE':
       return editRecipe(state, action.payload)
     case 'TOGGLE_EDIT':
-      return toggleEdit(state)
+      return toggleEdit(state, action.payload)
     default:
       return state
   }
