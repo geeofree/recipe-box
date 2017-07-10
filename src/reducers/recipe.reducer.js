@@ -26,6 +26,12 @@ function removeRecipe(state, recipeID) {
   })
 }
 
+function editRecipe(state, newRecipeData) {
+  return assign(state, {
+    selected: assign(state.selected, newRecipeData)
+  })
+}
+
 const RecipeReducer = (state=InitialState, action) => {
   switch(action.type) {
     case 'ADD_RECIPE':
