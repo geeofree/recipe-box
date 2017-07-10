@@ -1,12 +1,12 @@
 import React from 'react'
-import { connect }      from 'react-redux'
-import { removeRecipe } from '../../actions/recipe.action'
+import { connect } from 'react-redux'
+import { removeRecipe, toggleEdit } from '../../actions/recipe.action'
 
-const RecipeOptionsLayout = ({ recipeID, deleteRecipe, toggleEdit }) => (
+const RecipeOptionsLayout = ({ recipeID, isEditting, deleteRecipe, toggleEdit }) => (
   <div className="selected-recipe-buttons">
     <button
       className="edit-recipe"
-      onClick={() => toggleEdit()}>
+      onClick={() => toggleEdit(!isEditting)}>
         Edit
     </button>
     <button
@@ -17,10 +17,14 @@ const RecipeOptionsLayout = ({ recipeID, deleteRecipe, toggleEdit }) => (
   </div>
 )
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteRecipe: (id) => dispatch(removeRecipe(id)),
-  toggleEdit: () => dispatch('TOGGLE_EDIT')
+const mapStoreToProps = (store) => ({
+  isEditting: store.recipes.isEditting
 })
 
-const RecipeOptions = connect(null, mapDispatchToProps)(RecipeOptionsLayout)
+const mapDispatchToProps = (dispatch) => ({
+  deleteRecipe: (id) => dispatch(removeRecipe(id)),
+  toggleEdit: (bool) => dispatch(toggleEdit(bool))
+})
+
+const RecipeOptions = connect(mapStoreToProps, mapDispatchToProps)(RecipeOptionsLayout)
 export default RecipeOptions
