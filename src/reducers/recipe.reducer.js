@@ -1,6 +1,7 @@
 const InitialState = {
   recipes: [],
-  selected: {}
+  selected: {},
+  isEditting: false
 }
 
 const assign = (target, newValue) => Object.assign({}, target, newValue)
@@ -22,6 +23,9 @@ const editRecipe = (state, newRecipeData) => assign(state, {
   selected: assign(state.selected, newRecipeData)
 })
 
+const toggleEdit = (state) => assign(state, {
+  isEditting: !state.isEditting
+})
 
 const RecipeReducer = (state=InitialState, action) => {
   switch(action.type) {
@@ -33,6 +37,8 @@ const RecipeReducer = (state=InitialState, action) => {
       return getRecipe(state, action.payload)
     case 'EDIT_RECIPE':
       return editRecipe(state, action.payload)
+    case 'TOGGLE_EDIT':
+      return toggleEdit(state)
     default:
       return state
   }
