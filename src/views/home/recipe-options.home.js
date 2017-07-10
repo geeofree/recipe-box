@@ -22,5 +22,5 @@ const mapDispatchToProps = (dispatch) => ({
   toggleEdit: () => dispatch('TOGGLE_EDIT')
 })
 
-const RecipeOptions = connect(null, mapDispatchToProps)(RecipeOptions)
+const RecipeOptions = connect(null, mapDispatchToProps)(RecipeOptionsLayout)
 export default RecipeOptions
