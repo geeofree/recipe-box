@@ -5,9 +5,13 @@ const Ingredients = ({ items }) => {
   return ingredients.length ? <ul>{ingredients}</ul> : <p>This recipe has no ingredients.</p>
 }
 
+const RecipeImg = ({ url }) => (
+  <div className="recipe-img" style={{ backgroundImage: `url(${url})` }} />
+)
+
 const RecipeInfo = ({ recipe }) => (
   <div className="recipe-container">
-    <div className="recipe-img" style={{ backgroundImage: `url(${recipe.imgURL})` }} />
+    <RecipeImg url={recipe.imgURL} />
     <div className="recipe-info">
       <h2>{recipe.name}</h2>
       <div className="ingredients">
