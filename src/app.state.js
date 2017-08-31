@@ -1,12 +1,6 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import RecipeReducer from './reducers/recipe.reducer'
+import { createStore, applyMiddleware } from 'redux'
+import ReduxLogger from 'redux-logger'
+import RootReducer from './reducers/root.reducer'
 
-const logger = (store) => (next) => (action) => {
-  console.log('Dispatching:', action)
-  next(action)
-}
-
-const reducers   =  combineReducers({ recipes: RecipeReducer })
-const middleware =  applyMiddleware(logger)
-const AppState   = createStore(reducers, {}, middleware)
-export default AppState
+const Middlewares = applyMiddleware(ReduxLogger)
+export default createStore(RootReducer, Middlewares)
