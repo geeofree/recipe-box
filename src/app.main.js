@@ -4,8 +4,14 @@ import './app.style.sass'
 import AppState     from './app.state'
 import { Provider } from 'react-redux'
 
+import RecipeInfoModal from './components/Modal/RecipeInfo'
+import ModalButton     from './components/button'
+
 export default () => (
   <Provider store={AppState}>
-    <h1>Hello World!</h1>
+    <div>
+      <RecipeInfoModal />
+      <ModalButton />
+    </div>
   </Provider>
 )
