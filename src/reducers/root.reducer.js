@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-import ModalReducer from './modal.reducer'
+import ModalReducer   from './modal.reducer'
+import RecipesReducer from './recipes.reducer'
 
 export default combineReducers({
-  modal: ModalReducer
+  modal:   ModalReducer,
+  recipes: RecipesReducer
 })
