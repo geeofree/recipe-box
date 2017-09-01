@@ -1,7 +1,7 @@
 import React from 'react'
-import Modal from '../modal.container'
 import './recipe-info.style.sass'
 
+import Modal from '../modal.container'
 import { RECIPE_INFO } from '../../../types/modal.types'
 
 export default () => (
