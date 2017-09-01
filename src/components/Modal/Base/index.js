@@ -4,17 +4,17 @@ import './modal.style.sass'
 import { connect } from 'react-redux'
 import classnames  from 'classnames'
 
+import ModalContainer from './modal.container'
 import ModalHeader from './modal.header'
+import ModalBody from './modal.body'
 
-const Modal = ({ headerTitle, modalType, currentModal, children }) => (
-  <div className={classnames(modalType, 'modal', { show: currentModal === modalType })}>
-    <div className='modal-container'>
-      <ModalHeader title={headerTitle} />
-      <div className="modal-body">
-        {children}
-      </div>
-    </div>
-  </div>
+const Modal = ({ type, title, currentModal, children }) => (
+  <ModalContainer 
+		modalType={type}
+		activeWhen={currentModal === type}>
+  	<ModalHeader title={title} />
+  	<ModalBody children={children}/>
+  </ModalContainer>
 )
 
 const mapStateToProps = ({ modal }) => ({

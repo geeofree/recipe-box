@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { hideModals } from '../../actions/modal.actions'
+import { hideModals } from '../../../actions/modal.actions'
 
 const ModalHeader = ({ title, hideModals }) => (
   <div className="modal-header">
