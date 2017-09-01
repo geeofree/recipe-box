@@ -1,19 +1,19 @@
-$box-x: 430px
-$box-y: 580px
+$boxWidth: 430px
+$boxHeight: 580px
 
-$box-header-y: 80px
-$box-body-y: $box-y - $box-header-y
+$boxHeaderHeight: 80px
+$boxBodyHeight: $boxHeight - $boxHeaderHeight
 
 .recipe-box
 	position: absolute
 	top: 50%
 	left: 50%
 	transform: translate(-50%, -50%)
-	width: 430px
-	height: 580px
+	width: $boxWidth
+	height: $boxHeight
 
 	.box-header
-		height: $box-header-y
+		height: $boxHeaderHeight
 		background: #37548f
 		box-shadow: 2px 2px 3px #000
 
@@ -22,3 +22,16 @@ $box-body-y: $box-y - $box-header-y
 
 		.add-recipe
 			box-shadow: 2px 2px 3px #2a2f6c
+
+	.box-body
+		height: $boxBodyHeight
+		padding: 10px 0
+		overflow: hidden auto
+
+		.empty-box-body
+			padding: 10px
+			box-shadow: 2px 2px 3px #000
+			background: #d53051
+
+			h1
+				color: #FFF
