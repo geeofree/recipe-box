@@ -12,13 +12,14 @@
 
   .modal-container
     position: absolute
-    top: 50%
+    top: 0
     left: 50%
     transform: translate(-50%, -50%)
-    box-shadow: 0 2px 7px #222
+    box-shadow: 0 3px 6px #2d2828
     width: 500px
     height: 400px
     background: #FFF
+    transition-duration: 0.3s
 
     .modal-header, .modal-body
       width: 100%
@@ -38,12 +39,20 @@
       .modal-close
         border: none
         padding: 8px
-        border-radius: 5px
-        background: #FFF
+        color: #FFF
+        background: #49ae83
+        box-shadow: 0 0 3px #4d2c2c
         font-weight: bold
         cursor: pointer
+
+    .modal-body
+      padding: 10px
+
 
 
 .modal.show
   visibility: visible
   opacity: 1
+
+  .modal-container
+    top: 50% !important
