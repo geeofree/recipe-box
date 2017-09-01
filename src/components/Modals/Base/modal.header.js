@@ -1,15 +1,18 @@
-import React from 'react'
-import { connect } from 'react-redux'
-
+import React          from 'react'
+import { connect }    from 'react-redux'
 import { hideModals } from '../../../actions/modal.actions'
 
+import Button from '../../Commons/Button'
+import Header from '../../Commons/Header'
+
 const ModalHeader = ({ title, hideModals }) => (
-  <div className="modal-header">
+  <Header className="modal-header">
     <h2 className="modal-title">{title}</h2>
-    <button
+    <Button
+      text="Close"
       className="modal-close"
-      onClick={() => hideModals()}>Close</button>
-  </div>
+      onClick={() => hideModals()} />
+  </Header>
 )
 
 const mapDispatchToProps = (dispatch) => ({

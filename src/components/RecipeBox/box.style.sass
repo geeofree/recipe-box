@@ -1,0 +1,24 @@
+$box-x: 430px
+$box-y: 580px
+
+$box-header-y: 80px
+$box-body-y: $box-y - $box-header-y
+
+.recipe-box
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	width: 430px
+	height: 580px
+
+	.box-header
+		height: $box-header-y
+		background: #37548f
+		box-shadow: 2px 2px 3px #000
+
+		.box-title
+			color: #FFF
+
+		.add-recipe
+			box-shadow: 2px 2px 3px #2a2f6c

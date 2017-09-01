@@ -4,14 +4,14 @@ import './app.style.sass'
 import AppState     from './app.state'
 import { Provider } from 'react-redux'
 
-import RecipeInfoModal from './components/Modal/RecipeInfo'
-import ModalButton     from './components/button'
+import RecipeBox from './components/RecipeBox'
+import Modals    from './components/Modals'
 
 export default () => (
   <Provider store={AppState}>
     <div>
-      <RecipeInfoModal />
-      <ModalButton />
+      <RecipeBox />
+      <Modals />
     </div>
   </Provider>
 )
