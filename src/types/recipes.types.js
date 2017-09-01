@@ -1,0 +1,6 @@
+export const ADD_RECIPE    = 'ADD_RECIPE'
+export const FILTER_RECIPE = 'FILTER_RECIPE'
+export const REMOVE_RECIPE = 'REMOVE_RECIPE'
+export const CHANGE_RECIPE = 'CHANGE_RECIPE'
+export const SHOW_RECIPE   = 'SHOW_RECIPE'
+export const HIDE_RECIPE   = 'HIDE_RECIPE'
