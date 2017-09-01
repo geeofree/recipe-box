@@ -1,8 +1,8 @@
 import { SHOW_MODAL, HIDE_MODAL } from '../types/modal.types'
 
-export const showRecipeInfo = () => ({
+export const showModal = (modalType) => ({
 	type: SHOW_MODAL,
-	payload: { modalType: 'recipe-info' }
+	payload: { modalType }
 })
 
 export const hideModals = () => ({
