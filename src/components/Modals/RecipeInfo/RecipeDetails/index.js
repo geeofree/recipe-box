@@ -11,12 +11,12 @@ const RecipeDetails = ({ recipeName, author, dateCreated, ingredients }) => (
 			</div>
 		</div>
 		<div className="recipe-ingredients">
-			{ingredients.map((item, index) => (
-					<div className="ingredient" key={index}>
-						<div className="recipe-number">{index}</div>
-						<span>{item}</span>
-					</div>
-			))}
+			<h3>Ingredients</h3>
+			<ul>
+				{ingredients.map((item, index) => (
+					<li>{item}</li>
+				))}
+			</ul>
 		</div>
 	</div>
 )
