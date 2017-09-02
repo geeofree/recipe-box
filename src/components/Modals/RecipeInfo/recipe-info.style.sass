@@ -1,16 +1,17 @@
-$container-y: 450px
-$container-x: 480px
+$containerHeight: 450px
+$containerWidth:  480px
 
-$modal-header-y: 70px
-$modal-body-y:   $container-y - $modal-header-y
+$modalHeaderHeight: 70px
+$modalBodyHeight:   $containerHeight - $modalHeaderHeight
 
 .recipe-info
 	.modal-container
-		height: $container-y !important
+		height: $containerHeight !important
+		width: $containerWidth
 
 		.modal-header
-			height: $modal-header-y !important
+			height: $modalHeaderHeight !important
 			background: crimson !important
 
 		.modal-body
-			height: $modal-body-y !important
+			height: $modalBodyHeight !important
