@@ -2,7 +2,7 @@ import React from 'react'
 import './edit-recipe.style.sass'
 
 import { TextInput, TextArea } from '../../../Commons/Input'
-import Button from '../../../Commons/Button'
+import ActionButtons from './actionButtons'
 
 class RecipeEdit extends React.Component {
 	constructor(props) {
@@ -93,7 +93,7 @@ class RecipeEdit extends React.Component {
 					identifier={recipeIngredients}
 					onChange={handleChange}
 					placeholder="Enter ingredients separated by commas i.e flour, water, sugar"/>
-				<Button text="Confirm"/>
+				<ActionButtons />
 			</form>
 		)
 	}

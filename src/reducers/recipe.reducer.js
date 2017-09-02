@@ -4,11 +4,10 @@ import {
 	ADD_RECIPE,
 	FILTER_RECIPE,
 	REMOVE_RECIPE,
-	CHANGE_RECIPE,
-	CHANGE_RECIPE_CONFIRM,
-	CHANGE_RECIPE_CANCEL,
 	SHOW_RECIPE,
-	HIDE_RECIPE
+	HIDE_RECIPE,
+	CHANGE_RECIPE,
+	TOGGLE_RECIPE_CHANGE
 } from '../types/recipes.types'
 
 const initialState = {
@@ -30,21 +29,16 @@ export default (state=initialState, { type, payload }) => {
 				recipes: state.recipes.filter(recipe => recipe.id !== payload.recipeId)
 			})
 
-		case CHANGE_RECIPE:
+		case TOGGLE_RECIPE_CHANGE:
 			return update(state, {
-				isEditting: true
+				isEditting: payload.toggleState
 			})
 
-		case CHANGE_RECIPE_CONFIRM:
+		case CHANGE_RECIPE:
 			return update(state, {
 				recipes: state.recipes.map(recipe => (
 					recipe.id === payload.recipeId ? payload.recipe : recipe
 				))
-			})
-
-		case CHANGE_RECIPE_CANCEL:
-			return update(state, {
-				isEditting: false
 			})
 
 		case FILTER_RECIPE:
