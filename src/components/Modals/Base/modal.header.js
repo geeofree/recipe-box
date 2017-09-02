@@ -1,22 +1,22 @@
 import React          from 'react'
 import { connect }    from 'react-redux'
-import { hideModals } from '../../../actions/modal.actions'
+import resetDefaults from '../../../thunks/resetDefaults'
 
 import Button from '../../Commons/Button'
 import Header from '../../Commons/Header'
 
-const ModalHeader = ({ title, hideModals }) => (
+const ModalHeader = ({ title, resetDefaults }) => (
   <Header className="modal-header">
     <h2 className="modal-title">{title}</h2>
     <Button
       text="Close"
       className="modal-close"
-      onClick={() => hideModals()} />
+      onClick={() => resetDefaults()} />
   </Header>
 )
 
 const mapDispatchToProps = (dispatch) => ({
-  hideModals: () => dispatch(hideModals())
+  resetDefaults: () => dispatch(resetDefaults())
 })
 
 export default connect(null, mapDispatchToProps)(ModalHeader)

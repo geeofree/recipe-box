@@ -27,3 +27,12 @@ export const changeRecipe = (recipeId, newRecipeData) => ({
 	type: CHANGE_RECIPE,
 	payload: { recipeId, newRecipeData }
 })
+
+export const hideRecipe = () => ({
+	type: HIDE_RECIPE
+})
+
+export const removeRecipe = (recipeId) => ({
+	type: REMOVE_RECIPE,
+	payload: { recipeId }
+})
