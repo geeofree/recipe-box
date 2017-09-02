@@ -12,7 +12,7 @@ const RecipeDetails = ({ id, recipeName, author, dateCreated, ingredients }) => 
 			recipeName={recipeName}
 			dateCreated={dateCreated} />
 		<RecipeIngredients ingredients={ingredients} />
-		<ActionButtons />
+		<ActionButtons recipeId={id} />
 	</div>
 )
 
