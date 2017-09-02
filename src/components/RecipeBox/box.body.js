@@ -20,8 +20,8 @@ const BoxBody = ({ recipes }) => (
 	</div>
 )
 
-const mapStateToProps = ({ recipes }) => ({
-	recipes: recipes.recipes
+const mapStateToProps = ({ recipe }) => ({
+	recipes: recipe.recipes
 })
 
 export default connect(mapStateToProps)(BoxBody)
