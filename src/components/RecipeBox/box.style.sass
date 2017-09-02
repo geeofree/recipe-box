@@ -24,14 +24,11 @@ $boxBodyHeight: $boxHeight - $boxHeaderHeight
 			box-shadow: 2px 2px 3px #2a2f6c
 
 	.box-body
-		height: $boxBodyHeight
-		padding: 10px 0
-		overflow: hidden auto
+		overflow: auto
+		max-height: $boxBodyHeight
+		box-shadow: 2px 2px 3px #000
 
 		.empty-box-body
 			padding: 10px
 			box-shadow: 2px 2px 3px #000
-			background: #d53051
-
-			h1
-				color: #FFF
+			background: #FFF
