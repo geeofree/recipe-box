@@ -28,12 +28,12 @@ class Button extends React.Component {
 		const { clicked } = state
 
 		return (
-			<div
+			<button
 				onMouseUp={mouseUp}
 				onMouseDown={mouseDown}
 				className={classnames('btn', { clicked } , className)}>
 				{text}
-			</div>
+			</button>
 		)
 	}
 }

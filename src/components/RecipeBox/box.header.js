@@ -11,7 +11,7 @@ const BoxHeader = ({ title, showRecipeForm }) => (
 	<Header className="box-header">
 		<h2 className="box-title">{title}</h2>
 		<Button
-			text="Add Recipe"
+			text="New Recipe"
 			className="add-recipe"
 			onClick={showRecipeForm} />
 	</Header>

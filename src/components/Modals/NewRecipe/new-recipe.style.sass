@@ -1,0 +1,28 @@
+$containerHeight: 450px
+$containerWidth:  700px
+
+$modalHeaderHeight: 70px
+$modalBodyHeight:   $containerHeight - $modalHeaderHeight
+
+.new-recipe
+	.modal-container
+		height: $containerHeight !important
+		width: $containerWidth !important
+
+		.modal-header
+			height: $modalHeaderHeight !important
+			background: #40498d !important
+
+			.modal-close
+				box-shadow: 2px 2px 3px #232541
+
+		.modal-body
+			height: $modalBodyHeight !important
+
+			.recipe-form
+				textarea[name="ingredients"]
+					height: 120px
+
+				.btn
+					margin: 10px 0
+					align-self: right
