@@ -34,6 +34,7 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.1",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
     "shortid": "^2.2.8",
     "url-loader": "^0.5.9",

@@ -5,12 +5,15 @@ import {
 	FILTER_RECIPE,
 	REMOVE_RECIPE,
 	CHANGE_RECIPE,
+	CHANGE_RECIPE_CONFIRM,
+	CHANGE_RECIPE_CANCEL,
 	SHOW_RECIPE,
 	HIDE_RECIPE
 } from '../types/recipes.types'
 
 const initialState = {
 	currentRecipe: null,
+	isEditting: false,
 	recipes: []
 }
 
@@ -29,9 +32,19 @@ export default (state=initialState, { type, payload }) => {
 
 		case CHANGE_RECIPE:
 			return update(state, {
+				isEditting: true
+			})
+
+		case CHANGE_RECIPE_CONFIRM:
+			return update(state, {
 				recipes: state.recipes.map(recipe => (
 					recipe.id === payload.recipeId ? payload.recipe : recipe
 				))
+			})
+
+		case CHANGE_RECIPE_CANCEL:
+			return update(state, {
+				isEditting: false
 			})
 
 		case FILTER_RECIPE:
@@ -43,7 +56,7 @@ export default (state=initialState, { type, payload }) => {
 
 		case SHOW_RECIPE:
 			return update(state, {
-				currentRecipe: state.recipes.filter(recipe => recipe.id === payload.recipeId)
+				currentRecipe: state.recipes.filter(recipe => recipe.id === payload.recipeId)[0]
 			})
 
 		case HIDE_RECIPE:

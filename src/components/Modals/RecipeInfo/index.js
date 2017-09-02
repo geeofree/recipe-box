@@ -1,11 +1,20 @@
 import React from 'react'
 import './recipe-info.style.sass'
 
-import Modal from '../Base'
-import { RECIPE_INFO } from '../../../types/modal.types'
+import Modal      from '../Base'
+import RecipeInfo from './info'
 
-export default () => (
+import { RECIPE_INFO } from '../../../types/modal.types'
+import { connect }     from 'react-redux'
+
+const RecipeInfoModal = ({ currentRecipe }) => (
 	<Modal type={RECIPE_INFO} title="Recipe Information">
-		<h1>Hello World!</h1>
+		{ currentRecipe && <RecipeInfo {...currentRecipe} /> }
 	</Modal>
 )
+
+const mapStateToProps = ({ recipe }) => ({
+	currentRecipe: recipe.currentRecipe
+})
+
+export default connect(mapStateToProps)(RecipeInfoModal)

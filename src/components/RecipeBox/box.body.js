@@ -8,7 +8,7 @@ const BoxBody = ({ recipes }) => (
 		{recipes.length && recipes.map((recipe, index) => (
 			<Recipe
 				key={index}
-				id={index}
+				id={recipe.id}
 				name={recipe.recipeName}
 				author={recipe.author}
 				dateCreated={recipe.dateCreated}/>

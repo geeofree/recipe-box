@@ -11,3 +11,8 @@ export const addRecipe = (recipe) => ({
 	type: ADD_RECIPE,
 	payload: { recipe }
 })
+
+export const showRecipe = (recipeId) => ({
+	type: SHOW_RECIPE,
+	payload: { recipeId }
+})
