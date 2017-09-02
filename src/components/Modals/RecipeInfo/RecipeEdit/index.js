@@ -8,10 +8,12 @@ class RecipeEdit extends React.Component {
 	constructor(props) {
 		super(props)
 
+		const { recipeName, ingredients, author } = this.props
+
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 
-		this.state = { recipeName: '', recipeIngredients: '', author: '' }
+		this.state = { recipeName, author, recipeIngredients: ingredients.join(', ') }
 	}
 
 	handleSubmit(e) {
@@ -51,14 +53,8 @@ class RecipeEdit extends React.Component {
 		}
 
 		const ingredients = recipeIngredients.split(',')
-		const dateNow = new Date(Date.now())
 
-		const recipe = {
-			recipeName,
-			author,
-			ingredients,
-			dateCreated: dateFormat(dateNow)
-		}
+		const recipe = { recipeName, author, ingredients }
 
 		changeRecipe(recipe)
 		alert("Recipe successfully changed!")
@@ -73,22 +69,24 @@ class RecipeEdit extends React.Component {
 
 		const inputNames = {}
 		Object.keys(state).forEach(key => inputNames[key] = key)
-
 		const { recipeName, recipeIngredients, author } = inputNames
 
 		return (
 			<form className="edit-recipe-form" onSubmit={handleSubmit}>
 				<TextInput
+					value={state.recipeName}
 					label="Recipe Name"
 					identifier={recipeName}
 					onChange={handleChange}
 					placeholder="e.g Cake, Cookies, Muffins"/>
 				<TextInput
+					value={state.author}
 					label="Author"
 					identifier={author}
 					onChange={handleChange}
 					placeholder="default: Anonymous"/>
 				<TextArea
+					value={state.recipeIngredients}
 					label="Ingredients"
 					identifier={recipeIngredients}
 					onChange={handleChange}
