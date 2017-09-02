@@ -21,6 +21,15 @@ class RecipeForm extends React.Component {
 		this.state = { recipeName: '', recipeIngredients: '', author: '' }
 	}
 
+	componentWillUpdate(nextProps) {
+		const { props, form }  = this
+		const { currentModal } = props
+
+		if(!currentModal){
+			this.setState({ recipeName: '', recipeIngredients: '', author: '' })
+		}
+	}
+
 	handleSubmit(e) {
 		e.preventDefault()
 
@@ -71,6 +80,7 @@ class RecipeForm extends React.Component {
 		addRecipe(recipe)
 		alert("Recipe successfully added!")
 		hideModals()
+		this.setState({ recipeName: '', recipeIngredients: '', author: '' })
 	}
 
 	handleChange({ target }) {
@@ -88,16 +98,19 @@ class RecipeForm extends React.Component {
 		return (
 			<form className="recipe-form" onSubmit={handleSubmit}>
 				<TextInput
+					value={state.recipeName}
 					label="Recipe Name"
 					identifier={recipeName}
 					onChange={handleChange}
 					placeholder="e.g Cake, Cookies, Muffins"/>
 				<TextInput
+					value={state.author}
 					label="Author"
 					identifier={author}
 					onChange={handleChange}
 					placeholder="default: Anonymous"/>
 				<TextArea
+					value={state.recipeIngredients}
 					label="Ingredients"
 					identifier={recipeIngredients}
 					onChange={handleChange}
@@ -108,9 +121,13 @@ class RecipeForm extends React.Component {
 	}
 }
 
+const mapStateToProps = ({ modal }) => ({
+	currentModal: modal.currentModal
+})
+
 const mapDispatchToProps = (dispatch) => ({
 	addRecipe: (recipe) => dispatch(addRecipe(recipe)),
 	hideModals: () => dispatch(hideModals())
 })
 
-export default connect(null, mapDispatchToProps)(RecipeForm)
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeForm)
