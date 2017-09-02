@@ -19,9 +19,10 @@ class RecipeEdit extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault()
 
-		const { changeRecipe } = this.props
-		const isAlphanumeric = /^[a-z0-9]+$/i
-		let { recipeName, recipeIngredients, author } = this.state
+		const { props, state } = this
+		const { changeRecipe } = props
+		const isAlphanumeric   = /^[a-z0-9]+$/i
+		let { recipeName, recipeIngredients, author } = state
 
 		if(!author) {
 			author = 'Anonymous'
@@ -54,8 +55,16 @@ class RecipeEdit extends React.Component {
 
 		const ingredients = recipeIngredients.split(',')
 
-		const recipe = { recipeName, author, ingredients }
+		const sameRecipeName  = props.recipeName === recipeName
+		const sameAuthor      = props.author === author
+		const sameIngredients = props.ingredients.join(', ') === recipeIngredients
 
+		if(sameRecipeName && sameAuthor && sameIngredients) {
+			alert("Cannot submit. No changes made.")
+			return
+		}
+
+		const recipe = { recipeName, author, ingredients }
 		changeRecipe(recipe)
 		alert("Recipe successfully changed!")
 	}
