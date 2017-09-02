@@ -9,8 +9,9 @@ const BoxBody = ({ recipes }) => (
 			<Recipe
 				key={index}
 				id={index}
-				name={recipe.name}
-				author={recipe.author} />
+				name={recipe.recipeName}
+				author={recipe.author}
+				dateCreated={recipe.dateCreated}/>
 		)) || (
 			<div className="empty-box-body">
 				<h1>No recipes as of yet. Try adding one!</h1>

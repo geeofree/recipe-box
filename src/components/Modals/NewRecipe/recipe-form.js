@@ -1,7 +1,14 @@
 import React from 'react'
+import shortid from 'shortid'
+import { connect } from 'react-redux'
+
+import dateFormat from '../../../auxiliary/dateFormat'
+
+import { addRecipe } from '../../../actions/recipe.actions'
 
 import { TextInput, TextArea } from '../../Commons/Input'
 import Button from '../../Commons/Button'
+
 
 class RecipeForm extends React.Component {
 	constructor(props) {
@@ -10,13 +17,57 @@ class RecipeForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 
-		this.state = { recipeName: '', ingredients: '', author: '' }
+		this.state = { recipeName: '', recipeIngredients: '', author: '' }
 	}
 
 	handleSubmit(e) {
 		e.preventDefault()
-		const { recipeName, ingredients, author } = this.state
-		console.log(recipeName, ingredients, author)
+
+		const { addRecipe } = this.props
+		const isAlphanumeric = /^[a-z0-9]+$/i
+		let { recipeName, recipeIngredients, author } = this.state
+
+		if(!author) {
+			author = 'Anonymous'
+		}
+
+		if(!recipeName || recipeName.length < 3) {
+			alert("Recipe Name must not be empty or less than 3 characters")
+			return
+		}
+
+		if(!isAlphanumeric.test(recipeName)) {
+			alert("Recipe Name must be alphanumeric characters only.")
+			return
+		}
+
+		if(author.length > 0 && author.length < 3) {
+			alert("Author must not be less than 3 characters")
+			return
+		}
+
+		if(!isAlphanumeric.test(author)) {
+			alert("Author must be alphanumeric characters only")
+			return
+		}
+
+		if(!recipeIngredients) {
+			alert("No ingredients given.")
+			return
+		}
+
+		const ingredients = recipeIngredients.split(',')
+		const dateNow = new Date(Date.now())
+
+		const recipe = {
+			id: shortid.generate(),
+			recipeName,
+			author,
+			ingredients,
+			dateCreated: dateFormat(dateNow)
+		}
+
+		addRecipe(recipe)
 	}
 
 	handleChange({ target }) {
@@ -29,7 +80,7 @@ class RecipeForm extends React.Component {
 		const inputNames = {}
 		Object.keys(state).forEach(key => inputNames[key] = key)
 
-		const { recipeName, ingredients, author } = inputNames
+		const { recipeName, recipeIngredients, author } = inputNames
 
 		return (
 			<form className="recipe-form" onSubmit={handleSubmit}>
@@ -45,7 +96,7 @@ class RecipeForm extends React.Component {
 					placeholder="default: Anonymous"/>
 				<TextArea
 					label="Ingredients"
-					identifier={ingredients}
+					identifier={recipeIngredients}
 					onChange={handleChange}
 					placeholder="Enter ingredients separated by commas i.e flour, water, sugar"/>
 				<Button text="Add Recipe"/>
@@ -54,4 +105,8 @@ class RecipeForm extends React.Component {
 	}
 }
 
-export default RecipeForm
+const mapDispatchToProps = (dispatch) => ({
+	addRecipe: (recipe) => dispatch(addRecipe(recipe))
+})
+
+export default connect(null, mapDispatchToProps)(RecipeForm)

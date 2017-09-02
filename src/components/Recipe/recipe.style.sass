@@ -2,10 +2,23 @@
 	transition-duration: 0.3s
 
 .recipe-item
-	height: 95px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	height: 115px
 	padding: 10px
 	cursor: pointer
 	background: #FFF
+	line-height: 1.5
+
+	.recipe-author, .recipe-date-created
+		font-size: 13px
+
+	.recipe-author
+		color: #555
+
+	.recipe-date-created
+		color: #777
 
 	&:hover
 		background: #394866
