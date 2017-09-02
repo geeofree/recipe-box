@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import dateFormat from '../../../auxiliary/dateFormat'
 
 import { addRecipe } from '../../../actions/recipe.actions'
+import { hideModals } from '../../../actions/modal.actions'
 
 import { TextInput, TextArea } from '../../Commons/Input'
 import Button from '../../Commons/Button'
@@ -23,7 +24,7 @@ class RecipeForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault()
 
-		const { addRecipe } = this.props
+		const { addRecipe, hideModals } = this.props
 		const isAlphanumeric = /^[a-z0-9]+$/i
 		let { recipeName, recipeIngredients, author } = this.state
 
@@ -68,6 +69,8 @@ class RecipeForm extends React.Component {
 		}
 
 		addRecipe(recipe)
+		alert("Recipe successfully added!")
+		hideModals()
 	}
 
 	handleChange({ target }) {
@@ -106,7 +109,8 @@ class RecipeForm extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	addRecipe: (recipe) => dispatch(addRecipe(recipe))
+	addRecipe: (recipe) => dispatch(addRecipe(recipe)),
+	hideModals: () => dispatch(hideModals())
 })
 
 export default connect(null, mapDispatchToProps)(RecipeForm)
