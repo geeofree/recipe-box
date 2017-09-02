@@ -1,6 +1,9 @@
 import React from 'react'
 import './edit-recipe.style.sass'
 
+import { connect } from 'react-redux'
+import confirmChange from '../../../../thunks/confirmChange'
+
 import { TextInput, TextArea } from '../../../Commons/Input'
 import ActionButtons from './actionButtons'
 
@@ -20,7 +23,7 @@ class RecipeEdit extends React.Component {
 		e.preventDefault()
 
 		const { props, state } = this
-		const { changeRecipe } = props
+		const { confirmChange } = props
 		const isAlphanumeric   = /^[a-z0-9]+$/i
 		let { recipeName, recipeIngredients, author } = state
 
@@ -64,9 +67,15 @@ class RecipeEdit extends React.Component {
 			return
 		}
 
-		const recipe = { recipeName, author, ingredients }
-		changeRecipe(recipe)
+		const recipe = {
+			id: props.id,
+			dateCreated: props.dateCreated,
+			recipeName,
+			author,
+			ingredients
+		}
 		alert("Recipe successfully changed!")
+		confirmChange(props.id, recipe)
 	}
 
 	handleChange({ target }) {
@@ -106,4 +115,8 @@ class RecipeEdit extends React.Component {
 	}
 }
 
-export default RecipeEdit
+const mapDispatchToProps = (dispatch) => ({
+	confirmChange: (recipeId, newRecipeData) => dispatch(confirmChange(recipeId, newRecipeData))
+})
+
+export default connect(null, mapDispatchToProps)(RecipeEdit)

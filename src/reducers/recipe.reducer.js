@@ -37,7 +37,7 @@ export default (state=initialState, { type, payload }) => {
 		case CHANGE_RECIPE:
 			return update(state, {
 				recipes: state.recipes.map(recipe => (
-					recipe.id === payload.recipeId ? payload.recipe : recipe
+					recipe.id === payload.recipeId ? payload.newRecipeData : recipe
 				))
 			})
 

@@ -22,3 +22,8 @@ export const toggleEditting = (toggleState) => ({
 	type: TOGGLE_RECIPE_CHANGE,
 	payload: { toggleState }
 })
+
+export const changeRecipe = (recipeId, newRecipeData) => ({
+	type: CHANGE_RECIPE,
+	payload: { recipeId, newRecipeData }
+})
